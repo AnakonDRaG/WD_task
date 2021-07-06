@@ -8,6 +8,7 @@ import { HomeScreensDescription } from "constants/screens/homeScreens";
 import { Heading3 } from "uikit/Typography";
 import { useTheme } from "styled-components";
 import { Button, View } from "react-native";
+import BackButton from "uikit/Navigator/BackButton";
 
 
 const Stack = createStackNavigator();
@@ -32,13 +33,12 @@ const RootRouter = () => {
             shadowOpacity: 0
           },
           headerTintColor: theme.colors.primary,
-          headerTitleAlign: "center"
+          headerTitleAlign: "center",
+          headerLeft: () => <BackButton/>
         }}
       >
         <Stack.Screen name="main"
-                      options={{
-                        headerTitle: () => (<CompanyNameLogo />)
-                      }}
+                      options={{ headerShown: false }}
                       component={HomeScreen} />
         {Screens}
       </Stack.Navigator>
@@ -50,6 +50,7 @@ const Screens = HomeScreensDescription.map((item, index) => {
   if (item?.component !== undefined)
     return <Stack.Screen key={index}
                          name={item.namePage}
+
                          options={{
                            headerTitle: () => (<HeaderTitle weight="bold">{item.title}</HeaderTitle>)
                          }}

@@ -12,7 +12,8 @@ interface BoxBorderedProps {
   height?: string,
   borderRadius?: string,
   borderColor?: string | string[],
-  margin?: number
+  margin?: number,
+  gradientAngle?: number
 }
 
 const BoxBordered: React.FC<BoxBorderedProps> = (props) => (
@@ -25,6 +26,7 @@ const BoxBordered: React.FC<BoxBorderedProps> = (props) => (
       width={props.width}
       colors={props.borderColor || theme.gradients.gray}
       start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}
+      useAngle={true} angle={(props.gradientAngle || 90)} angleCenter={{x:0.5,y:0.5}}
       borderRadius={props.borderRadius}
     >
       <BoxContent

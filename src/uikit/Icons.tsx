@@ -11,6 +11,7 @@ import OfficeWorkIcon from "assets/icon/office_work.svg";
 import NounHistoryIcon from "assets/icon/UI/noun_history.svg"
 import CirclePlusIcon from "assets/icon/UI/circle_plus.svg"
 import ArrowRightIcon from "assets/icon/UI/right-arrow.svg"
+import BackArrowItem from "assets/icon/UI/back_arrow.svg"
 
 import CloudServiceStaffTop from "assets/background/could_serviceStaff_top.svg"
 
@@ -29,6 +30,7 @@ export {
   NounHistoryIcon,
   CirclePlusIcon,
   ArrowRightIcon,
+  BackArrowItem,
 
   // background
   CloudServiceStaffTop

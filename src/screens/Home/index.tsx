@@ -5,10 +5,13 @@ import CardComponent, { CardComponentProps } from "uikit/CardComponent";
 import MasonryList from "@react-native-seoul/masonry-list";
 import Container from "uikit/Container";
 import { HomeScreensDescription } from "constants/screens/homeScreens";
+import { CompanyNameLogo } from "../../uikit/Icons";
+import styled from "styled-components/native";
 
 const HomeScreen = () => (
   <ScrollView>
     <Container>
+      <HeaderLogo/>
       <MasonryList
         data={HomeScreensDescription}
         numColumns={2}
@@ -23,5 +26,9 @@ const HomeScreen = () => (
   </ScrollView>
 );
 
+const HeaderLogo = styled(CompanyNameLogo)`
+  margin: 40px auto;
+  
+`
 
 export default HomeScreen;
