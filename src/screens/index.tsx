@@ -5,7 +5,6 @@ import { useTheme } from 'styled-components'
 import { screenOptions } from 'constants/config'
 import ServiceStaffScreen from 'screens/ServiceStaff'
 
-
 const Stack = createStackNavigator()
 
 const RootRouter = () => {

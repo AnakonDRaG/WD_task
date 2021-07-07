@@ -18,7 +18,7 @@ const HomeScreen = () => (
           props.item && (
             <CardComponent
               key={props.i}
-              icon={props.item.icon?.call()}
+              icon={<props.item.icon />}
               title={props.item.title}
               namePage={props.item.namePage}
             />
