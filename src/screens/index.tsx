@@ -1,65 +1,35 @@
-import React from "react";
-
-import HomeScreen from "screens/Home";
-import { createStackNavigator } from "@react-navigation/stack";
-import styled from "styled-components/native";
-import { ArrowRightIcon, CompanyNameLogo } from "uikit/Icons";
-import { HomeScreensDescription } from "constants/screens/homeScreens";
-import { Heading3 } from "uikit/Typography";
-import { useTheme } from "styled-components";
-import { Button, View } from "react-native";
-import BackButton from "uikit/Navigator/BackButton";
+import React from 'react'
+import HomeScreen from 'screens/Home'
+import { createStackNavigator } from '@react-navigation/stack'
+import { useTheme } from 'styled-components'
+import { screenOptions } from 'constants/config'
+import ServiceStaffScreen from 'screens/ServiceStaff'
 
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator()
 
 const RootRouter = () => {
-    const theme = useTheme();
+  const theme = useTheme()
 
-    return (
-      <Stack.Navigator
-        initialRouteName="main"
-        screenOptions={{
-          headerShown: true,
-          headerTransparent: false,
-          cardShadowEnabled: true,
-          cardStyle: {
-            backgroundColor: theme.colors.white
-          },
-          headerStyle: {
-            height: 80,
-            backgroundColor: "transparent",
-            elevation: 0,
-            shadowOpacity: 0
-          },
-          headerTintColor: theme.colors.primary,
-          headerTitleAlign: "center",
-          headerLeft: () => <BackButton/>
-        }}
-      >
-        <Stack.Screen name="main"
-                      options={{ headerShown: false }}
-                      component={HomeScreen} />
-        {Screens}
-      </Stack.Navigator>
-    );
-  }
-;
+  return (
+    <Stack.Navigator
+      initialRouteName="Home"
+      screenOptions={({ navigation }) => ({
+        ...screenOptions(theme, navigation),
+      })}
+    >
+      <Stack.Screen
+        name="Home"
+        options={{ headerShown: false }}
+        component={HomeScreen}
+      />
+      <Stack.Screen
+        name="serviceStaff"
+        options={{ title: 'Заявка на ремонт' }}
+        component={ServiceStaffScreen}
+      />
+    </Stack.Navigator>
+  )
+}
 
-const Screens = HomeScreensDescription.map((item, index) => {
-  if (item?.component !== undefined)
-    return <Stack.Screen key={index}
-                         name={item.namePage}
-
-                         options={{
-                           headerTitle: () => (<HeaderTitle weight="bold">{item.title}</HeaderTitle>)
-                         }}
-                         component={item.component} />;
-});
-
-const HeaderTitle = styled(Heading3)`
-  color: ${({ theme }) => theme.colors.primary};
-`;
-
-
-export default RootRouter;
+export default RootRouter

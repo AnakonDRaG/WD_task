@@ -1,18 +1,17 @@
-import "styled-components";
-import { DefaultTheme } from "styled-components";
-import colors from "./colors";
-import gradients from "./gradient";
+import 'styled-components'
+import { DefaultTheme } from 'styled-components'
+import colors from './colors'
+import gradients from './gradient'
 
-import { sizes } from "./sizes";
-import { lineHeight, typeScale } from "./typography";
+import { sizes } from './sizes'
+import { lineHeight, typeScale } from './typography'
 
-
-declare module "styled-components" {
+declare module 'styled-components' {
   export interface DefaultTheme {
-    sizes: typeof sizes,
-    typeScale: typeof typeScale,
-    lineHeight: typeof lineHeight,
-    colors: typeof colors,
+    sizes: typeof sizes
+    typeScale: typeof typeScale
+    lineHeight: typeof lineHeight
+    colors: typeof colors
     gradients: typeof gradients
   }
 }
@@ -22,5 +21,5 @@ export const theme: DefaultTheme = {
   typeScale,
   lineHeight,
   colors,
-  gradients
-};
+  gradients,
+}
