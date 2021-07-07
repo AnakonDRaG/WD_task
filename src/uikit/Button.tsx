@@ -16,11 +16,11 @@ interface CustomButtonProps {
 export const PrimaryButton = (props: CustomButtonProps) => (
   <PrimaryButtonContainer onPress={props.onPress}>
     {props.iconLeft && (
-      <IconLeft>{React.createElement(props.iconLeft)}</IconLeft>
+      <IconLeftContainer>{<props.iconLeft />}</IconLeftContainer>
     )}
     <Text color="white">{props.title}</Text>
     {props.iconRight && (
-      <IconRight>{React.createElement(props.iconRight)}</IconRight>
+      <IconRightContainer>{<props.iconRight />}</IconRightContainer>
     )}
   </PrimaryButtonContainer>
 )
@@ -48,10 +48,10 @@ const PrimaryButtonContainer = styled(ButtonContainer)`
   background: ${({ theme }) => theme.colors.primary};
 `
 
-const IconLeft = styled.View`
+const IconLeftContainer = styled.View`
   margin: 0 12px 0 0;
 `
 
-const IconRight = styled.View`
+const IconRightContainer = styled.View`
   margin: 0 0 0 12px;
 `
