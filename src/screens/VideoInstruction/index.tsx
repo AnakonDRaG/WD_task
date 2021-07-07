@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 
 const VideoInstruction = () => (
   <View>
-    <Text>Video screen</Text>
+    <Text>Заглушка</Text>
   </View>
 );
 

@@ -1,13 +1,12 @@
 import React from "react";
 
-import { ScrollView } from "react-native";
+import { Alert, ScrollView } from "react-native";
 import { Heading1 } from "uikit/Typography";
 import Container from "uikit/Container";
 import { Col, Row } from "uikit/Grid";
 import { NounHistoryButton } from "uikit/Button";
 import Form from "components/Form.component";
 import { serviceStaffInputs } from "constants/Forms/serviceStaffInputs";
-
 
 
 const ServiceStaffScreen = () => (
@@ -25,7 +24,18 @@ const ServiceStaffScreen = () => (
 
         <Form
           onSubmit={() => {
-            console.log("submit");
+            Alert.alert(
+              "Success!",
+              "Form is work",
+              [
+                {
+                  text: "Cancel",
+                  onPress: () => console.log("Cancel Pressed"),
+                  style: "cancel"
+                },
+                { text: "OK", onPress: () => console.log("OK Pressed") }
+              ]
+            );
           }}
           items={serviceStaffInputs}
         />

@@ -47,7 +47,7 @@ const FormComponent = (props: FormProps) => {
           abortEarly: false
         });
         console.log(data.images);
-        //console.log(data);
+        props.onSubmit()
       } catch (err) {
         const validationErrors = {};
         if (err instanceof Yup.ValidationError) {

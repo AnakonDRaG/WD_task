@@ -24,32 +24,32 @@ export const HomeScreensDescription: Array<ScreensProps | undefined> = [
   {
     icon: ChatIcon,
     title: "Чат з менеджером",
-    namePage: "chatWithManager",
+    namePage: "videoInstruction",
     component: undefined
   },
   {
     icon: CallingIcon,
     title: "Дзвінок у підтримку",
-    namePage: "callForSupport",
+    namePage: "videoInstruction",
     component: undefined
   },
   {
     icon: OfficeWorkIcon,
     title: "Мій кабінет",
-    namePage: "myOffice",
+    namePage: "videoInstruction",
     component: undefined
   },
   {
     icon: HandshakeIcon,
     title: "Контакти",
-    namePage: "contacts",
+    namePage: "videoInstruction",
     component: undefined
   },
   undefined,
   {
     icon: OrderConfirmedIcon,
     title: "Продукція",
-    namePage: "product",
+    namePage: "videoInstruction",
     component: undefined
   }
 ];
