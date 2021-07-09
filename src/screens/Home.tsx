@@ -1,90 +1,94 @@
 import React from 'react'
-import CardComponent, { CardComponentProps } from "uikit/CardComponent";
-import MasonryList from '@react-native-seoul/masonry-list'
+import MenuButton from 'uikit/MenuButton'
 import Container from 'uikit/Container'
 import {
   CallingIcon,
   ChatIcon,
   CompanyNameLogo,
-  DataSettingIcon, HandshakeIcon, OfficeWorkIcon, OrderConfirmedIcon,
-  VideoTutorialIcon
-} from "uikit/Icons";
+  DataSettingIcon,
+  HandshakeIcon,
+  OfficeWorkIcon,
+  OrderConfirmedIcon,
+  VideoTutorialIcon,
+} from 'uikit/Icons'
 import styled from 'styled-components/native'
-import ServiceStaffScreen from 'screens/ApplicationCreate'
-import VideoInstruction from 'screens/VideoInstruction'
+import { useNavigation } from '@react-navigation/native'
 
-interface ScreensProps extends CardComponentProps {
-  component: any
+const HomeScreen = () => {
+  const navigator = useNavigation()
+
+  return (
+    <Container>
+      <HeaderContainer>
+        <CompanyNameLogo />
+      </HeaderContainer>
+
+      <Columns>
+        <Row style={{ marginRight: 10 }}>
+          <MenuButton
+            title="Заявка на ремонт"
+            icon={DataSettingIcon}
+            iconStyle={{ marginTop: 5, marginBottom: 20 }}
+            onPress={() => navigator.navigate('ApplicationCreate')}
+          />
+          <MenuButton
+            title="Чат з менеджером"
+            icon={ChatIcon}
+            iconStyle={{ marginTop: 12, marginBottom: 0 }}
+            onPress={() => navigator.navigate('ApplicationCreate')}
+          />
+          <MenuButton
+            title="Мій кабінет"
+            icon={OfficeWorkIcon}
+            iconStyle={{ marginTop: 14, marginBottom: 0 }}
+            onPress={() => navigator.navigate('ApplicationCreate')}
+          />
+        </Row>
+        <Row style={{ marginLeft: 10 }}>
+          <MenuButton
+            title="Відео-інструкції"
+            icon={VideoTutorialIcon}
+            iconStyle={{ marginTop: 8, marginBottom: 20 }}
+            onPress={() => navigator.navigate('ApplicationCreate')}
+          />
+          <MenuButton
+            title="Дзвінок у підтримку"
+            icon={CallingIcon}
+            iconStyle={{ marginTop: 17, marginBottom: 12 }}
+            onPress={() => navigator.navigate('ApplicationCreate')}
+          />
+          <MenuButton
+            title="Контакти"
+            icon={HandshakeIcon}
+            iconStyle={{ marginTop: 17, marginBottom: 10 }}
+            onPress={() => navigator.navigate('ApplicationCreate')}
+          />
+          <MenuButton
+            title="Продукція"
+            icon={OrderConfirmedIcon}
+            iconStyle={{ marginTop: 20, marginBottom: 8 }}
+            onPress={() => navigator.navigate('ApplicationCreate')}
+          />
+        </Row>
+      </Columns>
+    </Container>
+  )
 }
 
-const HomeScreen = () => (
-  <Container>
-    <HeaderLogo />
-    <MasonryList
-      data={HomeScreensDescription}
-      numColumns={2}
-      renderItem={props =>
-        props.item && (
-          <CardComponent
-            key={props.i}
-            icon={<props.item.icon />}
-            title={props.item.title}
-            namePage={props.item.namePage}
-          />
-        )
-      }
-    />
-  </Container>
-)
-
-const HomeScreensDescription: Array<ScreensProps | undefined> = [
-  {
-    icon: DataSettingIcon,
-    title: 'Заявка на ремонт',
-    namePage: 'ApplicationCreate',
-    component: ServiceStaffScreen,
-  },
-  {
-    icon: VideoTutorialIcon,
-    title: 'Відео-інструкції',
-    namePage: 'videoInstruction',
-    component: VideoInstruction,
-  },
-  {
-    icon: ChatIcon,
-    title: 'Чат з менеджером',
-    namePage: 'videoInstruction',
-    component: undefined,
-  },
-  {
-    icon: CallingIcon,
-    title: 'Дзвінок у підтримку',
-    namePage: 'videoInstruction',
-    component: undefined,
-  },
-  {
-    icon: OfficeWorkIcon,
-    title: 'Мій кабінет',
-    namePage: 'videoInstruction',
-    component: undefined,
-  },
-  {
-    icon: HandshakeIcon,
-    title: 'Контакти',
-    namePage: 'videoInstruction',
-    component: undefined,
-  },
-  undefined,
-  {
-    icon: OrderConfirmedIcon,
-    title: 'Продукція',
-    namePage: 'videoInstruction',
-    component: undefined,
-  },
-]
-
-const HeaderLogo = styled(CompanyNameLogo)`
-  margin: 40px auto;
+const HeaderContainer = styled.View`
+  margin: 15px 0 30px;
+  align-items: center;
 `
+
+const Row = styled.View`
+  flex: 1;
+`
+
+const Columns = styled.View`
+  flex: 1;
+  flex-direction: row;
+  padding: 0 25px;
+`
+
 
 export default HomeScreen
