@@ -3,9 +3,10 @@ import HomeScreen from 'screens/Home'
 import { createStackNavigator } from '@react-navigation/stack'
 import { useTheme } from 'styled-components'
 import { screenOptions } from 'constants/config'
-import ServiceStaffScreen from 'screens/ServiceStaff'
+import ServiceStaffScreen from 'screens/ApplicationCreate'
+import { RootParamList } from "screens/types";
 
-const Stack = createStackNavigator()
+const Stack = createStackNavigator<RootParamList>()
 
 const RootRouter = () => {
   const theme = useTheme()
@@ -23,7 +24,7 @@ const RootRouter = () => {
         component={HomeScreen}
       />
       <Stack.Screen
-        name="serviceStaff"
+        name="ApplicationCreate"
         options={{ title: 'Заявка на ремонт' }}
         component={ServiceStaffScreen}
       />
